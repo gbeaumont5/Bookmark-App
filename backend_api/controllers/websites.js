@@ -12,6 +12,16 @@ websites.get('/', (req, res) => {
     })
 })
 
+// //INDEX
+// websites.get('/', (req, res) => {
+//     Websites.find({}, (err, foundWebsites) => {
+//         if (err) {
+//             res.status(400).json({error: err.message})
+//         }
+//         res.status(200).json(foundWebsites)
+//     })
+// })
+
 
 
 //Create
@@ -23,6 +33,7 @@ websites.post('/', (req, res) => {
       res.status(200).send(createdWebsite);
     });
   });
+
 
 //Delete
 // websites.delete('/:id', (req, res) => {
