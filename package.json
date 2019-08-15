@@ -1,0 +1,23 @@
+{
+  "name": "bookmark-app",
+  "version": "1.0.0",
+  "description": "React Bookmark app Harold",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbeaumont5/Bookmark-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gbeaumont5/Bookmark-App/issues"
+  },
+  "homepage": "https://github.com/gbeaumont5/Bookmark-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
