@@ -2,7 +2,7 @@ const express = require('express');
 const websites = express.Router();
 const Websites = require('../models/websites')
 
-//index
+//INDEXXXX
 websites.get('/', (req, res) => {
     Websites.find({}, (err, foundWebsites) => {
         if (err) {
@@ -11,6 +11,8 @@ websites.get('/', (req, res) => {
         res.status(200).json(foundWebsites)
     })
 })
+
+
 
 //Create
 
