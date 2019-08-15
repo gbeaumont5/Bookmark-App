@@ -4,12 +4,18 @@ const Websites = require('../models/websites')
 
 //index
 websites.get('/', (req, res) => {
-    res.send('Hello World')
+    Websites.find({}, (err, foundWebsites) => {
+        if (err) {
+            res.status(400).json({error: err.message})
+        }
+        res.status(200).json(foundWebsites)
+    })
 })
 
 //Create
 
 //Delete
+
 
 
 //Update
