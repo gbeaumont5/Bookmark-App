@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import NewForm from './components/NewForm.js'
 import './App.css';
 
 
@@ -12,6 +13,7 @@ class App extends Component {
       websites: []
     }
     this.getWebsites = this.getWebsites.bind(this)
+    this.handleAddWebsite = this.handleAddWebsite.bind(this)
   }
 
   componentDidMount(){
@@ -29,10 +31,19 @@ class App extends Component {
     console.log(data)
   }
 
+  handleAddWebsite (event) {
+    const copyWebsites = [...this.state.websites]
+    copyWebsites.unshift(website)
+    this.setState({
+      websites: copyWebsites
+    })
+  }
+
   render () {
   return(
     <div>
       <h1>Bookmarks</h1>
+      <NewForm baseURL={baseURL} handleAddWebsite={this.handleAddWebsite}/>
       <div>
           {this.state.websites.map(website => {
             return (
