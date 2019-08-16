@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import axios from 'axios'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+let baseURL = 'http://localhost:3003'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      websites: []
+    }
+    this.getWebsites = this.getWebsites.bind(this)
+  }
+
+  componentDidMount(){
+    this.getWebsites()
+    
+  }
+ 
+  async getWebsites() {
+    const response = await axios(`${baseURL}/websites`);
+    const data = response.data;
+    this.setState({
+      websites: data
+    })
+    
+    console.log(data)
+  }
+
+  render () {
+  return(
+    <div>
+      <h1>Bookmarks</h1>
+      <div>
+          {this.state.websites.map(website => {
+            return (
+              <ul key={website._id}>
+                <li>{website.name}</li>
+              </ul>
+            )
+          })}
+      </div>
     </div>
-  );
+  )
+  }
 }
 
 export default App;
