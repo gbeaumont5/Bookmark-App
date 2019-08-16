@@ -31,7 +31,7 @@ class App extends Component {
     console.log(data)
   }
 
-  handleAddWebsite (event) {
+  handleAddWebsite (website) {
     const copyWebsites = [...this.state.websites]
     copyWebsites.unshift(website)
     this.setState({
