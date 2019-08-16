@@ -39,6 +39,13 @@ class App extends Component {
     })
   }
 
+  async deleteWebsite(id) {
+    await axios.delete(`${baseURL}/websites/${id}`)
+    const filteredWebsites = this.state.website.filter((holiday) => {
+      return holiday._id !==
+    })
+  }
+
   render () {
   return(
     <div>
@@ -49,6 +56,7 @@ class App extends Component {
             return (
               <ul key={website._id}>
                 <a href={website.url}><li>{website.name}</li></a>
+                <p>Delete</p>
               </ul>
             )
           })}
