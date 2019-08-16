@@ -2,8 +2,23 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const websitesController = require('./controllers/websites')
-const PORT = 3000; 
+const websitesController = require('./controllers/websites');
+const PORT = 3003; 
+const cors = require('cors');
+
+//cors
+const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+
+app.use(cors(corsOptions))
 
 //middleware
 app.use(express.json());
