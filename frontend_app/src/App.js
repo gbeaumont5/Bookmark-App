@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm.js';
+import UpdateWebsite from './components/Update';
 import './App.css';
 
 let baseURL = 'http://localhost:3003';
@@ -61,6 +62,10 @@ class App extends Component {
                   <li>{website.name}</li>
                 </a>
                 <p onClick={() => this.deleteWebsite(website._id)}>Delete</p>
+                <UpdateWebsite
+                  baseURL={baseURL}
+                  updateWebsite={this.updateWebsite}
+                />
               </ul>
             );
           })}
