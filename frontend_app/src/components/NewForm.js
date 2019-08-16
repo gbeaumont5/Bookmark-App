@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios"
-
+import axios from 'axios';
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -24,12 +23,10 @@ class NewForm extends Component {
   }
 
   handleChange(event) {
-    const {name, value} = event.currentTarget,
-    const {url, value} = event.currentTarget;
     this.setState({
-        [name]: value,
-        [url]: value
-    })
+      [event.currentTarget.name]: event.currentTarget.value,
+      [event.currentTarget.url]: event.currentTarget.value
+    });
   }
 
   async handleSubmit(event) {
