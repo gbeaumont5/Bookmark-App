@@ -48,7 +48,7 @@ class App extends Component {
           {this.state.websites.map(website => {
             return (
               <ul key={website._id}>
-                <li>{website.name}</li>
+                <a href={website.url}><li>{website.name}</li></a>
               </ul>
             )
           })}
