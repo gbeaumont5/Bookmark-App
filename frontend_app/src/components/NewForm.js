@@ -45,7 +45,7 @@ class NewForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className='top-form' onSubmit={this.handleSubmit}>
         <label htmlFor='name' />
         <input
           type='text'
