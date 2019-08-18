@@ -44,6 +44,7 @@ websites.put('/:id', (req, res) => {
         }
         res.status(200).json(updatedWebsites)
     })
+    console.log('backend')
 })
 
 
