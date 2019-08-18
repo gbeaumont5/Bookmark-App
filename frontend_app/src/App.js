@@ -15,6 +15,7 @@ class App extends Component {
     this.getWebsites = this.getWebsites.bind(this);
     this.handleAddWebsite = this.handleAddWebsite.bind(this);
     this.deleteWebsite = this.deleteWebsite.bind(this);
+    this.handleUpdateWebsite = this.handleUpdateWebsite.bind(this)
   }
 
   componentDidMount() {
@@ -38,6 +39,38 @@ class App extends Component {
       websites: copyWebsites
     });
   }
+
+  async handleUpdateWebsite(selectedWebsite) {
+     await axios.put(`${baseURL}/websites/${selectedWebsite._id}`, {
+      name: selectedWebsite.name
+    })
+
+    const updatedWebsite = this.state.websites.map(website => { if (website.id === selectedWebsite._id) { website.name = 'gary'
+    return website;
+    } else {
+      return website;
+    }
+
+    });
+
+    this.setState({
+      websites: updatedWebsite
+    })
+
+
+
+
+
+  //   const data = response.data;
+  //   data.forEach(id => {
+  //     websites[id]
+  //   });
+  //   this.setState({
+  //     websites: copyWebsites
+  //   });
+  }
+
+  
 
   async deleteWebsite(id) {
     await axios.delete(`${baseURL}/websites/${id}`);
@@ -64,8 +97,9 @@ class App extends Component {
                 <p onClick={() => this.deleteWebsite(website._id)}>Delete</p>
                 <UpdateWebsite
                   baseURL={baseURL}
-                  updateWebsite={this.updateWebsite}
+                  handleUpdateWebsite={this.handleUpdateWebsite}
                 />
+                {/* <p onClick={() => this.updateWebsite(website._id)}>Update</p> */}
               </ul>
             );
           })}
