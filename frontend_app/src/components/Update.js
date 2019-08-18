@@ -9,6 +9,8 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://fathomless-sierra-68956.herokuapp.com';
 }
 
+console.log('current base URL:', baseURL);
+
 class UpdateWebsite extends Component {
     constructor(props) {
       super(props);
@@ -17,7 +19,7 @@ class UpdateWebsite extends Component {
         url: props.url
       }; 
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitUpdate = this.submitUpdate.bind(this);
     }
 
     handleUpdate(event) {
@@ -29,7 +31,7 @@ class UpdateWebsite extends Component {
       async submitUpdate(event) {
         event.preventDefault();
         const baseURL = this.props.baseURL;
-        const response = await axios.post(`${baseURL}/websites`, {
+        const response = await axios.put(`${baseURL}/websites`, {
           name: this.state.name,
           url: this.state.url
         });
@@ -37,7 +39,7 @@ class UpdateWebsite extends Component {
           name: '',
           url: ''
         });
-        this.props.handleAddWebsite(response.data);
+        this.props.handleUpdateWebsite(response.data);
       }
 
       render() {
