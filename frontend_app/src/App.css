@@ -1,3 +1,10 @@
+body {
+  background: rgb(135, 195, 235);
+}
+/* .app_body {
+  background: #61dafb;
+} */
+
 .App {
   text-align: center;
 }
@@ -30,4 +37,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+h1 {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 2%;
+  padding: 3%;
+  background: gray;
+  color: WHITE;
+}
+input {
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px;
+  /* margin: 5px auto; */
+}
+input[type='submit'] {
+  background: gray;
+  color: white;
+}
+input:hover {
+  background: lightgrey;
+  color: green;
+}
+input:focus {
+  background: lightgrey;
+  color: green;
+}
+
+form {
+  margin: 0 auto;
+  padding-left: 1%;
+}
+.top-form {
+  padding-left: 3%;
+}
+div {
+  text-align: center;
+}
+a {
+  list-style-type: none;
+  color: green;
+}
+p {
+  color: red;
 }

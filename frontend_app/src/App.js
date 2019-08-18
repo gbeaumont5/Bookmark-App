@@ -51,7 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app_body'>
         <h1>Bookmarks</h1>
         <NewForm baseURL={baseURL} handleAddWebsite={this.handleAddWebsite} />
         <div>

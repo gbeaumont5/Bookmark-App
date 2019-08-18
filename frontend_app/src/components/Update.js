@@ -10,60 +10,60 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 class UpdateWebsite extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        name: props.name,
-        url: props.url
-      }; 
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: props.name,
+      url: props.url
+    };
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    this.submitUpdate = this.submitUpdate.bind(this);
+  }
 
-    handleUpdate(event) {
-        this.setState({
-          [event.currentTarget.name]: event.currentTarget.value,
-          [event.currentTarget.url]: event.currentTarget.value
-        });
-      }
-      async submitUpdate(event) {
-        event.preventDefault();
-        const baseURL = this.props.baseURL;
-        const response = await axios.post(`${baseURL}/websites`, {
-          name: this.state.name,
-          url: this.state.url
-        });
-        this.setState({
-          name: '',
-          url: ''
-        });
-        this.props.handleAddWebsite(response.data);
-      }
+  handleUpdate(event) {
+    this.setState({
+      [event.currentTarget.name]: event.currentTarget.value,
+      [event.currentTarget.url]: event.currentTarget.value
+    });
+  }
+  async submitUpdate(event) {
+    event.preventDefault();
+    const baseURL = this.props.baseURL;
+    const response = await axios.post(`${baseURL}/websites`, {
+      name: this.state.name,
+      url: this.state.url
+    });
+    this.setState({
+      name: '',
+      url: ''
+    });
+    this.props.handleAddWebsite(response.data);
+  }
 
-      render() {
-        return (
-          <form onSubmit={this.submitUpdate}>
-            <label htmlFor='name' />
-            <input
-              type='text'
-              id='name'
-              name='name'
-              onChange={this.handleUpdate}
-              value={this.state.name}
-              placeholder='update website name'
-            />
-            <input
-              type='text'
-              id='url'
-              name='url'
-              onChange={this.handleUpdate}
-              value={this.state.url}
-              placeholder='update website url'
-            />
-            <input type='submit' value='Update Website' />
-          </form>
-        );
-      }
-    }
-    
+  render() {
+    return (
+      <form onSubmit={this.submitUpdate}>
+        <label htmlFor='name' />
+        <input
+          type='text'
+          id='name'
+          name='name'
+          onChange={this.handleUpdate}
+          value={this.state.name}
+          placeholder='update website name'
+        />
+        <input
+          type='text'
+          id='url'
+          name='url'
+          onChange={this.handleUpdate}
+          value={this.state.url}
+          placeholder='update website url'
+        />
+        <input type='submit' value='Update Website' />
+      </form>
+    );
+  }
+}
+
 export default UpdateWebsite;
