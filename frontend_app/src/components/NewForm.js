@@ -53,7 +53,7 @@ class NewForm extends Component {
           name='name'
           onChange={this.handleChange}
           value={this.state.name}
-          placeholder='add a website name'
+          placeholder='Website Name'
         />
         <input
           type='text'
@@ -61,7 +61,7 @@ class NewForm extends Component {
           name='url'
           onChange={this.handleChange}
           value={this.state.url}
-          placeholder='add a website url'
+          placeholder='Website URL'
         />
         <input type='submit' value='Add a Website' />
       </form>
