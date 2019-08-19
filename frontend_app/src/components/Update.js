@@ -15,8 +15,8 @@ class UpdateWebsite extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.website.name,
-      url: this.props.website.url
+      name: this.props.name,
+      url: this.props.url
     };
     this.handleUpdate = this.handleUpdate.bind(this);
     this.submitUpdate = this.submitUpdate.bind(this);
