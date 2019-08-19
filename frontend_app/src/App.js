@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm.js';
-import UpdateWebsite from './components/Update';
+import UpdateWebsite from './components/Update.js';
 import './App.css';
 
 let baseURL = 'http://localhost:3003';
@@ -12,6 +12,8 @@ class App extends Component {
     this.state = {
       websites: []
     };
+
+
     this.getWebsites = this.getWebsites.bind(this);
     this.handleAddWebsite = this.handleAddWebsite.bind(this);
     this.deleteWebsite = this.deleteWebsite.bind(this);
@@ -54,20 +56,9 @@ class App extends Component {
     });
 
     this.setState({
-      websites: updatedWebsite
+      websites: {updatedWebsite}
     })
 
-
-
-
-
-  //   const data = response.data;
-  //   data.forEach(id => {
-  //     websites[id]
-  //   });
-  //   this.setState({
-  //     websites: copyWebsites
-  //   });
   }
 
   
@@ -86,6 +77,7 @@ class App extends Component {
     return (
       <div className='app_body'>
         <h1>Bookmarks</h1>
+        <h4>Create New</h4>
         <NewForm baseURL={baseURL} handleAddWebsite={this.handleAddWebsite} />
         <div>
           {this.state.websites.map(website => {
